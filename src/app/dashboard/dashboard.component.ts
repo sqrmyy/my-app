@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { City } from '../city/city';
+import { CityService } from '../city/city.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  cities: City[];
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private service: CityService
+  ){ } 
+
+  ngOnInit() {
+    this.cities = this.service.getCities();
   }
 
 }
