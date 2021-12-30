@@ -10,6 +10,8 @@ import { CityAddComponent } from './city/city-add/city-add.component';
 import { CityEditComponent } from './city/city-edit/city-edit.component';
 import { CityService } from './city/city.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './HttpService';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [CityService],
+  providers: [
+    CityService,
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
